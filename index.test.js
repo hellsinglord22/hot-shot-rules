@@ -3,9 +3,8 @@ const expect = require('chai').expect;
 const { MachinePackRules } = require('./index');
 
 
-describe('shouldExictWith', function(){
-    it('The meet Constrains Test', function() {
-
+describe('isRuleEnforcedOn', function(){
+    it('shouldExist return true', function() {
         const result = new MachinePackRules({ 
                 shouldExist: ['secondInput', 'thirdInput']
             }
@@ -13,11 +12,26 @@ describe('shouldExictWith', function(){
         expect(result).to.equal(true);
     });
 
-    it('The `do not` meet constrains test', function() {
+    it('shouldExist return false', function() {
 
         const result = new MachinePackRules(
             { shouldExist: ['secondInput', 'thirdInput']}
         ).isRulesEnforcedOn({secondInput: {}});
         expect(result).to.equal(false);
     });
+
+
+    it('shouldNotExist return true', function() {
+        const result = new MachinePackRules({ 
+                shouldNotExist: ['secondInput', 'thirdInput']
+            }
+        ).isRulesEnforcedOn({firstInput: {}});
+        expect(result).to.equal(true);
+    }); 
+    it('shouldNotExist return false', function() {
+         const result = new MachinePackRules({ 
+                shouldNotExist: ['secondInput', 'thirdInput']
+            }
+        ).isRulesEnforcedOn({secondInput: {}});
+    }); 
 });
