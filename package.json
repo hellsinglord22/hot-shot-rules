@@ -1,0 +1,19 @@
+{
+  "name": "machinepack-rules",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha index.test.js -w"
+  },
+  "keywords": [
+    "machinepack",
+    "rules"
+  ],
+  "author": "Hesham Adel",
+  "license": "MIT",
+  "dependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0"
+  }
+}
