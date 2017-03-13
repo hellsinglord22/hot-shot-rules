@@ -1,11 +1,11 @@
 const _ = require('lodash'); 
 const expect = require('chai').expect; 
-const { MachinePackRules } = require('./index');
+const { Rule } = require('./index');
 
 
 describe('isRuleEnforcedOn', function(){
     it('shouldExist return true', function() {
-        const result = new MachinePackRules({ 
+        const result = new Rule({ 
                 shouldExist: ['secondInput', 'thirdInput']
             }
         ).isRulesEnforcedOn({secondInput: {}, thirdInput: {}});
@@ -14,7 +14,7 @@ describe('isRuleEnforcedOn', function(){
 
     it('shouldExist return false', function() {
 
-        const result = new MachinePackRules(
+        const result = new Rule(
             { shouldExist: ['secondInput', 'thirdInput']}
         ).isRulesEnforcedOn({secondInput: {}});
         expect(result).to.equal(false);
@@ -22,14 +22,14 @@ describe('isRuleEnforcedOn', function(){
 
 
     it('shouldNotExist return true', function() {
-        const result = new MachinePackRules({ 
+        const result = new Rule({ 
                 shouldNotExist: ['secondInput', 'thirdInput']
             }
         ).isRulesEnforcedOn({firstInput: {}});
         expect(result).to.equal(true);
     }); 
     it('shouldNotExist return false', function() {
-         const result = new MachinePackRules({ 
+         const result = new Rule({ 
                 shouldNotExist: ['secondInput', 'thirdInput']
             }
         ).isRulesEnforcedOn({secondInput: {}});

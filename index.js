@@ -4,16 +4,16 @@ const rules = [
 ];
 
 
-const MachinePackRules = function(rule){
+const Rule = function(rule){
     this.rule = rule;
 };
 
-MachinePackRules.prototype.isRulesEnforcedOn = function(inputs) {
+Rule.prototype.isRulesEnforcedOn = function(inputs) {
     this.inputs = inputs; 
     return this.meetShouldExistRule() && this.meetShouldNotExistRule();
 };
 
-MachinePackRules.prototype.meetShouldExistRule =  function(){
+Rule.prototype.meetShouldExistRule =  function(){
     const rule = this.rule; 
     const inputs = this.inputs; 
     var flag = true;
@@ -36,7 +36,7 @@ MachinePackRules.prototype.meetShouldExistRule =  function(){
     return flag;
 };
 
-MachinePackRules.prototype.meetShouldNotExistRule =  function(){
+Rule.prototype.meetShouldNotExistRule =  function(){
     const rule = this.rule; 
     const inputs = this.inputs; 
     var flag = true;
@@ -61,5 +61,5 @@ MachinePackRules.prototype.meetShouldNotExistRule =  function(){
 
 
 module.exports = {
-   MachinePackRules 
+   Rule 
 }; 
